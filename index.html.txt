@@ -1,0 +1,1926 @@
+
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme de Stage - Préparation Physique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --indigo-100: #e0e7ff;
+            --indigo-200: #c7d2fe;
+            --indigo-300: #a5b4fc;
+            --indigo-400: #818cf8;
+            --indigo-500: #6366f1;
+            --indigo-600: #4f46e5;
+            --indigo-700: #4338ca;
+            --indigo-800: #3730a3;
+            --indigo-900: #312e81;
+            --blue-100: #dbeafe;
+            --blue-600: #2563eb;
+            --green-100: #dcfce7;
+            --green-600: #16a34a;
+            --purple-100: #ede9fe;
+            --purple-600: #8b5cf6;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .logo p {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .header-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .header-actions {
+                flex-direction: row;
+                align-items: center;
+                width: auto;
+            }
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .search-container {
+                width: auto;
+            }
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--indigo-500);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+        }
+
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .user-actions {
+                width: auto;
+            }
+        }
+
+        .view-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.5rem;
+            background-color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .view-toggle:hover {
+            background-color: var(--gray-50);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .avatar {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 9999px;
+            background-color: var(--indigo-600);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .user-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .logout-btn {
+            padding: 0.25rem;
+            border: none;
+            background: none;
+            color: var(--gray-400);
+            cursor: pointer;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease;
+        }
+
+        .logout-btn:hover {
+            color: var(--gray-500);
+            background-color: var(--gray-100);
+        }
+
+        /* Progress summary */
+        .progress-summary {
+            margin-bottom: 2rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .progress-percentage {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--indigo-600);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0.75rem;
+            background-color: var(--gray-200);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--indigo-600);
+            border-radius: 9999px;
+            width: 0;
+            transition: width 1s ease-out;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .metrics-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .metric-card {
+            background-color: white;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border-left: 0.25rem solid;
+            display: flex;
+            align-items: center;
+        }
+
+        .metric-card:nth-child(1) {
+            border-left-color: var(--indigo-600);
+        }
+
+        .metric-card:nth-child(2) {
+            border-left-color: var(--blue-600);
+        }
+
+        .metric-card:nth-child(3) {
+            border-left-color: var(--purple-600);
+        }
+
+        .metric-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        .metric-icon:nth-child(1) {
+            background-color: var(--indigo-100);
+            color: var(--indigo-600);
+        }
+
+        .metric-icon:nth-child(2) {
+            background-color: var(--blue-100);
+            color: var(--blue-600);
+        }
+
+        .metric-icon:nth-child(3) {
+            background-color: var(--purple-100);
+            color: var(--purple-600);
+        }
+
+        .metric-info {
+            flex: 1;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        /* Modules grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        .module-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s ease;
+        }
+
+        .module-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .module-card.completed {
+            border-color: var(--green-200);
+        }
+
+        .module-card.in-progress {
+            border-color: var(--indigo-200);
+        }
+
+        .module-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-status {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .module-status.completed {
+            background-color: var(--green-100);
+            color: var(--green-800);
+        }
+
+        .module-status.in-progress {
+            background-color: var(--indigo-100);
+            color: var(--indigo-800);
+        }
+
+        .module-status.not-started {
+            background-color: var(--gray-100);
+            color: var(--gray-800);
+        }
+
+        .module-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-top: 0.5rem;
+        }
+
+        .module-weeks {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .module-content {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            display: none;
+        }
+
+        .module-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .module-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title svg {
+            margin-right: 0.5rem;
+            color: var(--indigo-600);
+        }
+
+        .objectives-list, .deliverables-list {
+            list-style: none;
+        }
+
+        .objectives-list li, .deliverables-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .objectives-list li::before, .deliverables-list li::before {
+            content: "";
+            display: inline-block;
+            width: 0.375rem;
+            height: 0.375rem;
+            background-color: var(--indigo-600);
+            border-radius: 9999px;
+            margin-top: 0.5rem;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .documents-section {
+            background-color: var(--gray-50);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background-color: var(--gray-50);
+            border-radius: 0.375rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .document-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+            background-color: var(--indigo-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+        }
+
+        .document-icon svg {
+            color: var(--indigo-600);
+        }
+
+        .document-info {
+            flex: 1;
+        }
+
+        .document-name {
+            font-weight: 500;
+            color: var(--gray-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .document-date {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .document-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .document-action {
+            color: var(--gray-400);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .document-action:hover {
+            color: var(--gray-500);
+        }
+
+        .upload-placeholder {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .upload-placeholder svg {
+            width: 3rem;
+            height: 3rem;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+        }
+
+        .upload-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: var(--indigo-600);
+            color: white;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .upload-btn:hover {
+            background-color: var(--indigo-700);
+        }
+
+        .upload-btn svg {
+            margin-right: 0.5rem;
+        }
+
+        .status-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid var(--gray-300);
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .status-btn:hover {
+            background-color: var(--gray-50);
+        }
+
+        .status-btn.active {
+            background-color: var(--gray-200);
+            color: var(--gray-800);
+        }
+
+        .status-btn.in-progress.active {
+            background-color: var(--indigo-100);
+            color: var(--indigo-800);
+        }
+
+        .status-btn.completed.active {
+            background-color: var(--green-100);
+            color: var(--green-800);
+        }
+
+        .add-note-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            border: none;
+            background-color: var(--indigo-600);
+            color: white;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .add-note-btn:hover {
+            background-color: var(--indigo-700);
+        }
+
+        .add-note-btn svg {
+            margin-right: 0.5rem;
+        }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            display: none;
+        }
+
+        .modal {
+            background-color: white;
+            border-radius: 0.75rem;
+            width: 100%;
+            max-width: 32rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .file-upload-area {
+            border: 2px dashed var(--gray-300);
+            border-radius: 0.5rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+        }
+
+        .file-upload-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 1rem;
+            color: var(--gray-400);
+        }
+
+        .file-upload-text {
+            color: var(--gray-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .file-upload-highlight {
+            color: var(--indigo-600);
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .file-upload-hint {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .file-preview {
+            background-color: var(--gray-50);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .file-preview-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .file-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--gray-400);
+        }
+
+        .file-name {
+            font-weight: 500;
+            color: var(--gray-900);
+        }
+
+        .file-size {
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+
+        .progress-container {
+            margin-top: 0.75rem;
+        }
+
+        .progress-bar-upload {
+            width: 100%;
+            height: 0.5rem;
+            background-color: var(--gray-200);
+            border-radius: 9999px;
+            overflow: hidden;
+        }
+
+        .progress-fill-upload {
+            height: 100%;
+            background-color: var(--indigo-600);
+            border-radius: 9999px;
+            width: 0;
+            transition: width 0.2s ease;
+        }
+
+        .progress-percentage-upload {
+            text-align: right;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-top: 0.25rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--gray-200);
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+
+        .modal-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: 1px solid var(--gray-300);
+            background-color: white;
+            transition: all 0.2s ease;
+        }
+
+        .modal-btn:hover {
+            background-color: var(--gray-50);
+        }
+
+        .modal-btn.primary {
+            background-color: var(--indigo-600);
+            border-color: var(--indigo-600);
+            color: white;
+        }
+
+        .modal-btn.primary:hover {
+            background-color: var(--indigo-700);
+        }
+
+        .modal-btn.secondary {
+            background-color: white;
+            border-color: var(--gray-300);
+            color: var(--gray-700);
+        }
+
+        .modal-btn.secondary:hover {
+            background-color: var(--gray-50);
+        }
+
+        .modal-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .textarea {
+            width: 100%;
+            min-height: 12rem;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 0.375rem;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+
+        .textarea:focus {
+            outline: none;
+            border-color: var(--indigo-500);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: white;
+            border-top: 1px solid var(--gray-200);
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+
+        .footer-copyright {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+        }
+
+        /* Login screen */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: linear-gradient(to bottom right, #f0f4ff, #e0e7ff);
+        }
+
+        .login-card {
+            background-color: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 28rem;
+        }
+
+        .login-header {
+            background-color: var(--indigo-600);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .login-header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .login-header p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.5rem;
+        }
+
+        .login-body {
+            padding: 1.5rem;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-bottom: 1rem;
+        }
+
+        .login-btn.student {
+            background-color: var(--indigo-600);
+            color: white;
+        }
+
+        .login-btn.student:hover {
+            background-color: var(--indigo-700);
+        }
+
+        .login-btn.mentor {
+            background-color: var(--gray-100);
+            color: var(--gray-700);
+            border: 1px solid var(--gray-300);
+        }
+
+        .login-btn.mentor:hover {
+            background-color: var(--gray-200);
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+
+        /* Animation */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-down {
+            animation: slideDown 0.3s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <h1>Plateforme de Stage</h1>
+                <p>Programme de préparation physique multisport</p>
+            </div>
+            <div class="login-body">
+                <button id="login-student" class="login-btn student">
+                    Se connecter comme étudiant
+                </button>
+                <button id="login-mentor" class="login-btn mentor">
+                    Se connecter comme maître de stage
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="hidden">
+        <!-- Header -->
+        <header>
+            <div class="container header-content">
+                <div class="logo">
+                    <svg id="lucide-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+                    <div>
+                        <h1>Plateforme de Stage - Préparation Physique</h1>
+                        <p>Centre Régional d'Entraînement Multisport - Québec</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input type="text" id="search-input" class="search-input" placeholder="Rechercher un module...">
+                    </div>
+                    <div class="user-actions">
+                        <button id="view-toggle" class="view-toggle">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <span id="view-toggle-text">Voir en tant que maître de stage</span>
+                        </button>
+                        <div class="user-profile">
+                            <div class="avatar" id="user-avatar">E</div>
+                            <span class="user-name" id="user-name">Étudiant en stage</span>
+                            <button id="logout-btn" class="logout-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                    <polyline points="16 17 21 12 16 7"></polyline>
+                                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container">
+            <!-- Progress Summary -->
+            <div class="progress-summary">
+                <div class="progress-header">
+                    <h2 class="progress-title">Progression globale du stage</h2>
+                    <span class="progress-percentage" id="progress-percentage">0% complété</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="2 2 12 12 22 2"></polyline>
+                            </svg>
+                        </div>
+                        <div class="metric-info">
+                            <p class="metric-label">Modules complétés</p>
+                            <p class="metric-value" id="completed-modules">0/10</p>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div class="metric-info">
+                            <p class="metric-label">Semaines restantes</p>
+                            <p class="metric-value">14</p>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="metric-info">
+                            <p class="metric-label">Documents soumis</p>
+                            <p class="metric-value" id="submitted-docs">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modules Grid -->
+            <div class="modules-grid" id="modules-grid">
+                <!-- Modules will be inserted here by JavaScript -->
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="container footer-content">
+                <div class="footer-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="2 2 12 12 22 2"></polyline>
+                    </svg>
+                    <span>Plateforme de Stage - Préparation Physique</span>
+                </div>
+                <div class="footer-copyright">
+                    © <span id="current-year">2023</span> Centre Régional d'Entraînement Multisport - Québec
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Upload Modal -->
+        <div id="upload-modal" class="modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="upload-modal-title">Soumettre un document</h3>
+                </div>
+                <div class="modal-body">
+                    <div class="file-upload-area" id="file-upload-area">
+                        <svg class="file-upload-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p class="file-upload-text">
+                            <span class="file-upload-highlight" id="upload-highlight">Télécharger un fichier</span> ou glisser-déposer
+                        </p>
+                        <p class="file-upload-hint">PDF, DOC, PPT jusqu'à 10MB</p>
+                        <input type="file" id="file-input" style="display: none;">
+                    </div>
+                    
+                    <div class="file-preview" id="file-preview">
+                        <div class="file-preview-content">
+                            <div class="file-info">
+                                <svg class="file-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                <div>
+                                    <div class="file-name" id="file-name">Document.pdf</div>
+                                    <div class="file-size" id="file-size">2.5 MB</div>
+                                </div>
+                            </div>
+                            <div class="document-actions">
+                                <svg class="document-action view-action" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 6v.01"></path>
+                                    <path d="M12 18v.01"></path>
+                                    <path d="M6 12h.01"></path>
+                                    <path d="M18 12h.01"></path>
+                                </svg>
+                                <svg class="document-action download-action" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar-upload">
+                                <div class="progress-fill-upload" id="upload-progress" style="width: 0%"></div>
+                            </div>
+                            <div class="progress-percentage-upload" id="progress-percentage">0%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-btn secondary" id="cancel-upload">Annuler</button>
+                    <button class="modal-btn primary" id="submit-upload" disabled>Soumettre</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Meeting Notes Modal -->
+        <div id="meeting-modal" class="modal-overlay">
+            <div class="modal">
+                <div class="modal-header">
+                    <h3 class="modal-title">Notes de rencontre hebdomadaire</h3>
+                </div>
+                <div class="modal-body">
+                    <label for="meeting-notes" class="block text-sm font-medium text-gray-700 mb-2">
+                        Notes
+                    </label>
+                    <textarea id="meeting-notes" class="textarea" placeholder="Décrivez les points discutés lors de la rencontre..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button class="modal-btn secondary" id="cancel-meeting">Annuler</button>
+                    <button class="modal-btn primary" id="save-meeting" disabled>Sauvegarder</button>
+                </div>
+            </div>
+        </div>
+
+    <script>
+        // Initialize lucide icons
+        lucide.createIcons();
+        
+        // Syllabus modules data
+        const syllabusModules = [
+            {
+                id: 1,
+                title: "Module 1: Introduction au contexte",
+                weeks: "Semaine 1-2",
+                description: "Comprendre le contexte spécifique de notre centre et nos méthodologies",
+                objectives: [
+                    "Visionner 3 vidéos d'entraînement de nos athlètes",
+                    "Lire le document 'Philosophie d'entraînement de notre centre'",
+                    "Explorer les données types de nos systèmes de monitoring",
+                    "Compléter un questionnaire d'auto-évaluation"
+                ],
+                deliverables: [
+                    "Présentation de 5 minutes: 'Pourquoi je veux travailler spécifiquement avec des sports de puissance et de glisse?'",
+                    "Analyse comparative: 3 similitudes et 3 différences entre les besoins physiques",
+                    "Plan personnel d'apprentissage avec vos objectifs pour le stage"
+                ],
+                status: "not_started", // not_started, in_progress, completed
+                documents: []
+            },
+            {
+                id: 2,
+                title: "Module 2: Haltérophilie - Apprentissage du modèle technique",
+                weeks: "Semaine 3-4",
+                description: "Maîtriser les fondements techniques des mouvements d'haltérophilie",
+                objectives: [
+                    "Compléter le module interactif 'Anatomie des mouvements d'haltérophilie'",
+                    "Visionner et annoter 5 vidéos de référence de clean & jerk et snatch",
+                    "Lire les articles clés sur la biomécanique de l'haltérophilie",
+                    "Créer un glossaire des termes techniques"
+                ],
+                deliverables: [
+                    "Vidéo de vous exécutant un clean à vide avec auto-évaluation technique",
+                    "Document comparatif: 'Les 3 erreurs techniques les plus courantes'",
+                    "Plan de progression pour maîtriser un mouvement d'haltérophilie spécifique"
+                ],
+                status: "not_started",
+                documents: []
+            },
+            {
+                id: 3,
+                title: "Module 3: Haltérophilie - Expérimentation et enseignement",
+                weeks: "Semaine 5-6",
+                description: "Appliquer vos connaissances techniques et développer vos compétences pédagogiques",
+                objectives: [
+                    "Compléter le module 'Cues efficaces en haltérophilie'",
+                    "Analyser 10 vidéos d'athlètes en erreur et proposer des corrections",
+                    "Créer une progression d'apprentissage pour un mouvement spécifique",
+                    "Étudier les adaptations nécessaires pour les jeunes athlètes"
+                ],
+                deliverables: [
+                    "Session d'enseignement simulée: Vous m'enseignez un mouvement d'haltérophilie (15 min)",
+                    "Document: 'Guide d'enseignement du [mouvement] adapté aux sports de glisse'",
+                    "Plan de pratique personnelle pour les 4 prochaines semaines"
+                ],
+                status: "not_started",
+                documents: []
+            },
+            {
+                id: 4,
+                title: "Module 4: Développement de force",
+                weeks: "Semaine 7",
+                description: "Comprendre et appliquer les principes du développement de force",
+                objectives: [
+                    "Compléter le module interactif 'Mécanismes neuro-musculaires du développement de force'",
+                    "Analyser 3 méthodologies de développement de force",
+                    "Étudier les spécificités du développement de force pour les sports de glisse",
+                    "Explorer les données de force plates"
+                ],
+                deliverables: [
+                    "Présentation de 10 min: 'La méthode de développement de force que je recommanderais'",
+                    "Esquisse d'un mésocycle de 4 semaines pour le développement de force maximal",
+                    "Analyse critique: 'Pourquoi la méthode X fonctionnerait/pas pour nos athlètes?'"
+                ],
+                status: "not_started",
+                documents: []
+            },
+            {
+                id: 5,
+                title: "Module 5: Développement de puissance",
+                weeks: "Semaine 8",
+                description: "Comprendre et appliquer les principes du développement de puissance",
+                objectives: [
+                    "Compléter le module 'Physiologie de la puissance musculaire'",
+                    "Comparer différentes méthodes de développement de puissance",
+                    "Étudier les spécificités du développement de puissance pour les sports de glisse",
+                    "Analyser des données de puissance de nos athlètes olympiques"
+                ],
+                deliverables: [
+                    "Présentation de 10 min: 'La méthode de développement de puissance la plus adaptée'",
+                    "Esquisse d'un mésocycle de 4 semaines pour le développement de puissance",
+                    "Analyse: 'Comment intégrer le développement de puissance dans la période pré-compétitive?'"
+                ],
+                status: "not_started",
+                documents: []
+            },
+            {
+                id: 6,
+                title: "Module 6: Analyse de tâche",
+                weeks: "Semaine 9",
+                description: "Analyser les exigences physiques spécifiques des sports",
+                objectives: [
+                    "Choisir un sport (ski alpin, snowboard cross ou canoë-kayak)",
+                    "Rechercher les données scientifiques sur les exigences physiques de ce sport",
+                    "Analyser des vidéos de compétition pour identifier les moments clés",
+                    "Étudier les systèmes de monitoring utilisés dans ce sport"
+                ],
+                deliverables: [
+                    "Présentation de 15 min: 'Analyse complète des exigences physiques du [sport choisi]'",
+                    "Document: 'Matrice des qualités physiques clés avec priorisation'",
+                    "Proposition: 'Comment adapter notre programme d'entraînement?'"
+                ],
+                status: "not_started",
+                documents: []
+            },
+            {
+                id: 7,
+                title: "Module 7: Monitoring",
+                weeks: "Semaine 10-11",
+                description: "Maîtriser les outils de monitoring et leur interprétation",
+                objectives: [
+                    "Compléter le module interactif 'Interprétation des données de force plates'",
+                    "Analyser des séries de données CMJ de nos athlètes",
+                    "Étudier les protocoles de monitoring pour les sports de glisse",
+                    "Explorer les limites et biais des différents systèmes de monitoring"
+                ],
+                deliverables: [
+                    "Rapport d'analyse: 'Interprétation d'un suivi longitudinal de 8 semaines'",
+                    "Proposition: 'Protocole de monitoring optimisé pour notre centre régional'",
+                    "Présentation: 'Comment utiliser ces données pour ajuster le programme d'entraînement?'"
+                ],
+                status: "not_started",
+                documents: []
+            },
+            {
+                id: 8,
+                title: "Module 8: Velocity Based Training",
+                weeks: "Semaine 12",
+                description: "Comprendre et appliquer le VBT dans un contexte pratique",
+                objectives: [
+                    "Compléter le module interactif 'Principes fondamentaux du VBT'",
+                    "Analyser des données VBT de nos athlètes",
+                    "Étudier les applications spécifiques du VBT pour les sports de puissance",
+                    "Comparer différentes technologies de mesure de vélocité"
+                ],
+                deliverables: [
+                    "Présentation: 'Comment intégrer le VBT dans notre programmation'",
+                    "Analyse: 'Suivi longitudinal d'un athlète utilisant le VBT'",
+                    "Proposition: 'Protocole VBT adapté à un mésocycle spécifique'"
+                ],
+                status: "not_started",
+                documents: []
+            },
+            {
+                id: 9,
+                title: "Module 9: Intervention auprès d'un groupe",
+                weeks: "Semaine 13-14",
+                description: "Planifier et livrer une séance d'entraînement complète",
+                objectives: [
+                    "Observer 3 séances d'entraînement complètes avec différents groupes d'athlètes",
+                    "Analyser les feedbacks des athlètes sur ces séances",
+                    "Étudier nos protocoles de sécurité et d'adaptation",
+                    "Préparer votre propre séance d'entraînement"
+                ],
+                deliverables: [
+                    "Planification complète d'une séance d'entraînement pour un groupe spécifique",
+                    "Présentation de votre séance (objectifs, progression, alternatives)",
+                    "Matériel pédagogique préparé pour les athlètes (fiches, démonstrations)"
+                ],
+                status: "not_started",
+                documents: []
+            },
+            {
+                id: 10,
+                title: "Module 10: Application pratique",
+                weeks: "Semaine 15-16",
+                description: "Appliquer vos compétences dans un contexte réel avec supervision progressive",
+                objectives: [
+                    "Préparer et livrer une séance complète sous supervision progressive",
+                    "Collecter et analyser les données de la séance",
+                    "Obtenir des feedbacks des athlètes et des collègues",
+                    "Préparer une réflexion critique sur votre expérience"
+                ],
+                deliverables: [
+                    "Rapport complet sur votre séance d'entraînement",
+                    "Présentation de vos apprentissages clés du stage",
+                    "Proposition: 'Comment j'améliorerais notre programme d'entraînement'",
+                    "Plan de développement professionnel post-stage"
+                ],
+                status: "not_started",
+                documents: []
+            }
+        ];
+
+        // App state
+        let currentUser = null;
+        let activeModule = null;
+        let expandedModule = null;
+        let currentModules = [...syllabusModules];
+
+        // DOM elements
+        const loginScreen = document.getElementById('login-screen');
+        const app = document.getElementById('app');
+        const modulesGrid = document.getElementById('modules-grid');
+        const progressFill = document.getElementById('progress-fill');
+        const progressPercentage = document.getElementById('progress-percentage');
+        const completedModules = document.getElementById('completed-modules');
+        const submittedDocs = document.getElementById('submitted-docs');
+        const searchInput = document.getElementById('search-input');
+        const viewToggle = document.getElementById('view-toggle');
+        const viewToggleText = document.getElementById('view-toggle-text');
+        const userAvatar = document.getElementById('user-avatar');
+        const userName = document.getElementById('user-name');
+        const logoutBtn = document.getElementById('logout-btn');
+        const uploadModal = document.getElementById('upload-modal');
+        const meetingModal = document.getElementById('meeting-modal');
+        const fileUploadArea = document.getElementById('file-upload-area');
+        const fileInput = document.getElementById('file-input');
+        const filePreview = document.getElementById('file-preview');
+        const fileName = document.getElementById('file-name');
+        const fileSize = document.getElementById('file-size');
+        const uploadProgress = document.getElementById('upload-progress');
+        const progressPercentageEl = document.getElementById('progress-percentage');
+        const cancelUpload = document.getElementById('cancel-upload');
+        const submitUpload = document.getElementById('submit-upload');
+        const meetingNotes = document.getElementById('meeting-notes');
+        const cancelMeeting = document.getElementById('cancel-meeting');
+        const saveMeeting = document.getElementById('save-meeting');
+        const uploadHighlight = document.getElementById('upload-highlight');
+        const uploadModalTitle = document.getElementById('upload-modal-title');
+
+        // Initialize the app
+        function init() {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Check if user is logged in
+            const savedUser = localStorage.getItem('stage-user');
+            const savedModules = localStorage.getItem('stage-modules');
+            
+            if (savedModules) {
+                try {
+                    currentModules = JSON.parse(savedModules);
+                } catch (e) {
+                    console.error('Error parsing saved modules:', e);
+                }
+            }
+            
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                showApp();
+                renderModules();
+                updateProgress();
+            } else {
+                showLogin();
+            }
+            
+            // Add event listeners
+            document.getElementById('login-student').addEventListener('click', () => login('student'));
+            document.getElementById('login-mentor').addEventListener('click', () => login('mentor'));
+            logoutBtn.addEventListener('click', logout);
+            viewToggle.addEventListener('click', toggleRole);
+            searchInput.addEventListener('input', renderModules);
+            cancelUpload.addEventListener('click', closeUploadModal);
+            cancelMeeting.addEventListener('click', closeMeetingModal);
+            saveMeeting.addEventListener('click', saveMeetingNotes);
+            submitUpload.addEventListener('click', submitDocument);
+            fileUploadArea.addEventListener('click', () => fileInput.click());
+            fileInput.addEventListener('change', handleFileSelect);
+            uploadHighlight.addEventListener('click', () => fileInput.click());
+        }
+
+        // Show login screen
+        function showLogin() {
+            loginScreen.classList.remove('hidden');
+            app.classList.add('hidden');
+        }
+
+        // Show app
+        function showApp() {
+            loginScreen.classList.add('hidden');
+            app.classList.remove('hidden');
+            updateUserUI();
+        }
+
+        // Login function
+        function login(role) {
+            if (role === 'student') {
+                currentUser = {
+                    id: 1,
+                    name: "Étudiant en stage",
+                    role: "student"
+                };
+            } else {
+                currentUser = {
+                    id: 2,
+                    name: "Maître de stage",
+                    role: "mentor"
+                };
+            }
+            
+            localStorage.setItem('stage-user', JSON.stringify(currentUser));
+            showApp();
+            renderModules();
+            updateProgress();
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('stage-user');
+            currentUser = null;
+            showLogin();
+        }
+
+        // Toggle between student and mentor view
+        function toggleRole() {
+            if (currentUser.role === 'student') {
+                currentUser = {
+                    id: 2,
+                    name: "Maître de stage",
+                    role: "mentor"
+                };
+            } else {
+                currentUser = {
+                    id: 1,
+                    name: "Étudiant en stage",
+                    role: "student"
+                };
+            }
+            
+            localStorage.setItem('stage-user', JSON.stringify(currentUser));
+            updateUserUI();
+            renderModules();
+        }
+
+        // Update UI based on current user
+        function updateUserUI() {
+            if (currentUser.role === 'student') {
+                viewToggleText.textContent = 'Voir en tant que maître de stage';
+                userAvatar.textContent = currentUser.name.charAt(0);
+                userName.textContent = currentUser.name;
+            } else {
+                viewToggleText.textContent = 'Voir en tant qu\'étudiant';
+                userAvatar.textContent = currentUser.name.charAt(0);
+                userName.textContent = currentUser.name;
+            }
+        }
+
+        // Render modules
+        function renderModules() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredModules = currentModules.filter(module => 
+                module.title.toLowerCase().includes(searchTerm) ||
+                module.description.toLowerCase().includes(searchTerm)
+            );
+            
+            modulesGrid.innerHTML = '';
+            
+            filteredModules.forEach(module => {
+                const moduleCard = document.createElement('div');
+                moduleCard.className = `module-card ${module.status}`;
+                moduleCard.dataset.id = module.id;
+                
+                // Determine status class
+                let statusClass = 'not-started';
+                let statusText = 'À faire';
+                if (module.status === 'in_progress') {
+                    statusClass = 'in-progress';
+                    statusText = 'En cours';
+                } else if (module.status === 'completed') {
+                    statusClass = 'completed';
+                    statusText = 'Complété';
+                }
+                
+                // Build module HTML
+                moduleCard.innerHTML = `
+                    <div class="module-header">
+                        <div>
+                            <span class="module-status ${statusClass}">${statusText}</span>
+                            <h3 class="module-title">${module.title}</h3>
+                            <p class="module-weeks">${module.weeks}</p>
+                        </div>
+                        <div>
+                            ${module.status === 'completed' ? 
+                                `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
+                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                </svg>` :
+                                `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>`
+                            }
+                        </div>
+                    </div>
+                    <div class="module-content ${module.id === expandedModule ? 'active' : ''}">
+                        <div class="module-section">
+                            <h4 class="section-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                                Description
+                            </h4>
+                            <p>${module.description}</p>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <h4 class="section-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                    Objectifs
+                                </h4>
+                                <ul class="objectives-list">
+                                    ${module.objectives.map(obj => `<li>${obj}</li>`).join('')}
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h4 class="section-title">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                        <polyline points="2 2 12 12 22 2"></polyline>
+                                    </svg>
+                                    Livrables
+                                </h4>
+                                <ul class="deliverables-list">
+                                    ${module.deliverables.map(del => `<li>${del}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="module-section">
+                            <h4 class="section-title">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                Documents soumis
+                            </h4>
+                            
+                            ${module.documents.length === 0 ? `
+                                <div class="upload-placeholder">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    <p>Aucun document soumis pour ce module</p>
+                                    ${currentUser.role === 'student' ? `
+                                        <button class="upload-btn" data-module-id="${module.id}">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="17 8 12 3 7 8"></polyline>
+                                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                                            </svg>
+                                            Soumettre un document
+                                        </button>
+                                    ` : ''}
+                                </div>
+                            ` : `
+                                <div>
+                                    ${module.documents.map(doc => `
+                                        <div class="document-item">
+                                            <div class="document-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                                </svg>
+                                            </div>
+                                            <div class="document-info">
+                                                <div class="document-name">${doc.name}</div>
+                                                <div class="document-date">${new Date(doc.date).toLocaleDateString('fr-CA', { 
+                                                    year: 'numeric', 
+                                                    month: 'long', 
+                                                    day: 'numeric',
+                                                    hour: '2-digit',
+                                                    minute: '2-digit'
+                                                })}</div>
+                                            </div>
+                                            <div class="document-actions">
+                                                <svg class="document-action view-action" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <circle cx="12" cy="12" r="10"></circle>
+                                                    <circle cx="12" cy="12" r="3"></circle>
+                                                    <path d="M12 6v.01"></path>
+                                                    <path d="M12 18v.01"></path>
+                                                    <path d="M6 12h.01"></path>
+                                                    <path d="M18 12h.01"></path>
+                                                </svg>
+                                                <svg class="document-action download-action" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                    
+                                    ${currentUser.role === 'student' ? `
+                                        <button class="upload-btn" style="margin-top: 1rem; width: 100%;" data-module-id="${module.id}">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="17 8 12 3 7 8"></polyline>
+                                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                                            </svg>
+                                            Ajouter un nouveau document
+                                        </button>
+                                    ` : ''}
+                                </div>
+                            `}
+                        </div>
+                        
+                        <div class="status-buttons">
+                            <button class="status-btn ${module.status === 'not_started' ? 'active' : ''}" data-status="not_started" data-module-id="${module.id}">À faire</button>
+                            <button class="status-btn in-progress ${module.status === 'in_progress' ? 'active' : ''}" data-status="in_progress" data-module-id="${module.id}">En cours</button>
+                            <button class="status-btn completed ${module.status === 'completed' ? 'active' : ''}" data-status="completed" data-module-id="${module.id}">Complété</button>
+                        </div>
+                        
+                        ${currentUser.role === 'mentor' ? `
+                            <button class="add-note-btn" id="add-note-${module.id}">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                Ajouter des notes de rencontre
+                            </button>
+                        ` : ''}
+                    </div>
+                `;
+                
+                modulesGrid.appendChild(moduleCard);
+                
+                // Add event listeners for the module
+                const header = moduleCard.querySelector('.module-header');
+                header.addEventListener('click', () => toggleModuleExpansion(module.id));
+                
+                // Add event listeners for status buttons
+                const statusButtons = moduleCard.querySelectorAll('.status-btn');
+                statusButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const status = button.dataset.status;
+                        const moduleId = button.dataset.moduleId;
+                        updateModuleStatus(moduleId, status);
+                    });
+                });
+                
+                // Add event listeners for upload buttons
+                const uploadButtons = moduleCard.querySelectorAll('.upload-btn');
+                uploadButtons.forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const moduleId = button.dataset.moduleId;
+                        openUploadModal(moduleId);
+                    });
+                });
+                
+                // Add event listeners for document actions
+                const viewActions = moduleCard.querySelectorAll('.view-action');
+                viewActions.forEach(action => {
+                    action.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        // View document logic would go here
+                        alert('Fonctionnalité de visualisation non implémentée dans cette démo');
+                    });
+                });
+                
+                const downloadActions = moduleCard.querySelectorAll('.download-action');
+                downloadActions.forEach(action => {
+                    action.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        // Download document logic would go here
+                        alert('Fonctionnalité de téléchargement non implémentée dans cette démo');
+                    });
+                });
+                
+                // Add event listener for meeting notes button
+                if (currentUser.role === 'mentor') {
+                    const addNoteBtn = moduleCard.querySelector(`#add-note-${module.id}`);
+                    if (addNoteBtn) {
+                        addNoteBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            activeModule = module;
+                            openMeetingModal();
+                        });
+                    }
+                }
+            });
+        }
+
+        // Toggle module expansion
+        function toggleModuleExpansion(moduleId) {
+            if (expandedModule === moduleId) {
+                expandedModule = null;
+            } else {
+                expandedModule = moduleId;
+            }
+            renderModules();
+        }
+
+        // Update module status
+        function updateModuleStatus(moduleId, status) {
+            const moduleIndex = currentModules.findIndex(m => m.id == moduleId);
+            if (moduleIndex !== -1) {
+                currentModules[moduleIndex].status = status;
+                localStorage.setItem('stage-modules', JSON.stringify(currentModules));
+                updateProgress();
+                renderModules();
+            }
+        }
+
+        // Update progress metrics
+        function updateProgress() {
+            const totalModules = currentModules.length;
+            const completedModulesCount = currentModules.filter(m => m.status === 'completed').length;
+            const progress = Math.round((completedModulesCount / totalModules) * 100);
+            
+            // Update progress bar with animation
+            progressFill.style.width = `${progress}%`;
+            progressPercentage.textContent = `${progress}% complété`;
+            completedModules.textContent = `${completedModulesCount}/${totalModules}`;
+            
+            // Count total documents
+            let totalDocs = 0;
+            currentModules.forEach(module => {
+                totalDocs += module.documents.length;
+            });
+            submittedDocs.textContent = totalDocs;
+        }
+
+        // Open upload modal
+        function openUploadModal(moduleId) {
+            activeModule = currentModules.find(m => m.id == moduleId);
+            if (!activeModule) return;
+            
+            uploadModalTitle.textContent = `Soumettre un document - ${activeModule.title}`;
+            fileInput.value = '';
+            filePreview.style.display = 'none';
+            uploadProgress.style.width = '0%';
+            progressPercentageEl.textContent = '0%';
+            submitUpload.disabled = true;
+            
+            uploadModal.style.display = 'flex';
+        }
+
+        // Close upload modal
+        function closeUploadModal() {
+            uploadModal.style.display = 'none';
+            activeModule = null;
+        }
+
+        // Handle file selection
+        function handleFileSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            // Display file info
+            fileName.textContent = file.name;
+            fileSize.textContent = formatFileSize(file.size);
+            
+            // Show file preview
+            filePreview.style.display = 'block';
+            
+            // Enable submit button
+            submitUpload.disabled = false;
+        }
+
+        // Format file size
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        // Submit document
+        function submitDocument() {
+            if (!activeModule) return;
+            
+            const file = fileInput.files[0];
+            if (!file) return;
+            
+            // Simulate upload progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                uploadProgress.style.width = `${progress}%`;
+                progressPercentageEl.textContent = `${progress}%`;
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Add document to module
+                    const newDocument = {
+                        id: Date.now(),
+                        name: file.name,
+                        type: file.type,
+                        size: file.size,
+                        date: new Date().toISOString()
+                    };
+                    
+                    const moduleIndex = currentModules.findIndex(m => m.id == activeModule.id);
+                    if (moduleIndex !== -1) {
+                        currentModules[moduleIndex].documents.push(newDocument);
+                        localStorage.setItem('stage-modules', JSON.stringify(currentModules));
+                        
+                        // Update UI
+                        updateProgress();
+                        renderModules();
+                        closeUploadModal();
+                    }
+                }
+            }, 100);
+        }
+
+        // Open meeting modal
+        function openMeetingModal() {
+            meetingNotes.value = '';
+            saveMeeting.disabled = true;
+            meetingModal.style.display = 'flex';
+        }
+
+        // Close meeting modal
+        function closeMeetingModal() {
+            meetingModal.style.display = 'none';
+        }
+
+        // Save meeting notes
+        function saveMeetingNotes() {
+            const notes = meetingNotes.value.trim();
+            if (!notes) return;
+            
+            // In a real app, we would save these notes
+            console.log('Meeting notes saved:', notes);
+            alert('Notes de rencontre sauvegardées avec succès !');
+            closeMeetingModal();
+        }
+
+        // Event listeners for input changes
+        meetingNotes.addEventListener('input', () => {
+            saveMeeting.disabled = meetingNotes.value.trim() === '';
+        });
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
+```
